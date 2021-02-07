@@ -1,0 +1,135 @@
+/* Stylesheet: */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    background: white;
+    height: auto;
+}
+
+h1{
+    font-weight: 400;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+h2{
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+ul{
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+
+main{
+    max-width: 900px;
+    margin: auto;
+}
+
+#landing{
+    background-color: white;
+}
+
+#landing-text{
+    display: flex;
+    flex: 0 1 40vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+}
+
+#landing-text a {
+    color: rgb(17, 16, 16);
+    text-decoration: none;
+}
+
+#landing-text h2 {
+    color: grey;
+}
+
+#landing-image img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 4rem;
+    padding-left: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    width: 50%;
+    border-radius: 50%;
+}
+
+.btn{
+    padding: 0.5rem 2rem;
+    border: 3px lightsteelblue solid;
+    display: inline-block;
+    margin: 1rem 0 0;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #333;
+    transition: background 300ms ease-in-out;
+}
+
+.btn:hover{
+    background: lightsteelblue;
+}
+
+.link{
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    transition: color 300ms ease-in-out;
+}
+.link:hover{
+    color: lightsteelblue;
+}
+
+#about-me{
+    padding: 1rem;
+    text-align: center;
+    background-color: white;
+}
+
+#about-me h2 {
+
+
+    background: lightsteelblue;
+    color: #333;
+    border-left: dotted 0.5px darkslateblue;
+    border-right: dotted 0.5px darkslateblue;
+
+    font-size: 2rem;
+
+    text-transform: none;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-radius: 10rem;
+}
+
+#about-me h3 {
+    padding: 1rem;
+    text-align: left;
+
+}
+
+#about-me ul{
+    text-align: left;
+}
+
+#contact-list{
+    text-align: center;
+
+}
+
+footer{
+    text-align: center;
+    margin-bottom: 0;
+}
