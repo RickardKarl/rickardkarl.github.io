@@ -24,7 +24,7 @@ Work experience
   * Performed research in surrogate-based optimisation for discrete problems. Studied various acquistion functions. Also investigated the effect of continous versus discrete surrogate models, which resulted in a published paper presented at BNAIC/BeneLearn (2020).
   * Supervisor: Assistant professor Laurens Bliek (now at Eindhoven University of Technology)
 
-* July - Dec 2020: Software Developer
+* July - Dec 2020: Software Developer Consultant
   * Apro Translations AB
   * Developed software for robotic process automation to reduce manual labour in accepting job requests on a web portal, sending emails and automating actions in a desktop application.
 
@@ -33,13 +33,16 @@ Work experience
   * Developed a software utility for data visualization and editing of data used in very-long-baseline interferometry.
 
 * Jan - June 2019: Undergraduate Student Researcher
+  * Chalmers University of Technology
   * Built and tested a deep learning model (FCN, CNN) in Tensorflow that predicted properties of scattering gamma rays in subatomic experiments.
   * Supervisor: Associate professor Andreas Martin Heinz
 
 Skills
 ======
 * Programming
-  * Python, Java, C, R, Matlab
+  * Python, Java, C, R, Matlab, 
+* Technologies
+  * Tensorflow, PyTorch, NumPy, Pandas, SQL, Git, Docker, Kubernetes, Azure
 * Languages
   * Swedish (Native), 
   * English (Fluent)
