@@ -19,14 +19,14 @@ Education
 Work experience
 ======
 
+* July - Ongoing: Software Developer Consultant
+  * Apro Translations AB
+  * Developed software for robotic process automation to reduce manual labour in accepting job requests on a web portal, sending emails and automating actions in a desktop application.
+
 * Summer 2020: Research Assistant
   * Delft University of Technology
   * Performed research in surrogate-based optimisation for discrete problems. Studied various acquistion functions. Also investigated the effect of continous versus discrete surrogate models, which resulted in a published paper presented at BNAIC/BeneLearn (2020).
   * Supervisor: Assistant professor Laurens Bliek (now at Eindhoven University of Technology)
-
-* July - Dec 2020: Software Developer Consultant
-  * Apro Translations AB
-  * Developed software for robotic process automation to reduce manual labour in accepting job requests on a web portal, sending emails and automating actions in a desktop application.
 
 * Summer 2019: Data Analyst Intern
   * NASA Goddard Space Flight Center
