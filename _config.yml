@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Rickard Karlsson"
 title_separator          : "-"
 name                     : &name "Rickard Karlsson"
-description              : &description "personal description"
+description              : &description "Personal website of R.K.A. Karlsson"
 url                      : https://rickardkarl.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/RickardKarl/rickardkarl.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Rickard K.A. Karlsson"
   avatar           : "profile.png"
-  bio              : "M.Sc. student in Mathematics"
+  bio              : "M.Sc. student in Mathematics @ Chalmers University of Technology"
   location         : "Gothenburg, Sweden"
   employer         :
   pubmed           : 

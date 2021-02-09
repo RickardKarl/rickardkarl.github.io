@@ -11,30 +11,40 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.Sc. in Engineering Physics, Chalmers University of Technology University, 2019
+* Exchange student, Delft University of Technology, 2020
+* M.Sc. in Engineering Mathematics, Chalmers University of Technology University, 2021 (expected)
+
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
+* Summer 2020: Research Assistant
+  * Delft University of Technology
+  * Performed research in surrogate-based optimisation for discrete problems. Studied various acquistion functions. Also investigated the effect of continous versus discrete surrogate models, which resulted in a published paper presented at BNAIC/BeneLearn (2020).
+  * Supervisor: Assistant professor Laurens Bliek (now at Eindhoven University of Technology)
+
+* July - Dec 2020: Software Developer
+  * Apro Translations AB
+  * Developed software for robotic process automation to reduce manual labour in accepting job requests on a web portal, sending emails and automating actions in a desktop application.
+
+* Summer 2019: Data Analyst Intern
+  * NASA Goddard Space Flight Center
+  * Developed a software utility for data visualization and editing of data used in very-long-baseline interferometry.
+
+* Jan - June 2019: Undergraduate Student Researcher
+  * Built and tested a deep learning model (FCN, CNN) in Tensorflow that predicted properties of scattering gamma rays in subatomic experiments.
+  * Supervisor: Associate professor Andreas Martin Heinz
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming
+  * Python, Java, C, R, Matlab
+* Languages
+  * Swedish (Native), 
+  * English (Fluent)
+  * Polish (Intermediate)
+  * French (Basic)
 
 Publications
 ======
@@ -54,6 +64,3 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
