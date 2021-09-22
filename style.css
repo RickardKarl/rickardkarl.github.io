@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 body{
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Condensed', serif;
     font-size: large;
     margin: 0;
     background: white;
@@ -70,17 +70,16 @@ main{
     padding-right: 4rem;
     padding-left: 4rem;
     padding-top: 4rem;
-    padding-bottom: 22rem;
-    vertical-align: middle;
+    padding-bottom: 12rem;
 }
 
 .float-left {
-    width: 40%;
-    float: left;
+    width: 30%;
+    float: auto;
 
 }  
 .float-right {
-    width: 60%;
+    width: 70%;
     float: right;
 }  
 
@@ -89,8 +88,8 @@ main{
 }
 
 #landing-text{
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    width: 100%;
+    margin: auto;
 }
 
 #landing-text a {
@@ -98,20 +97,21 @@ main{
     text-decoration: none;
 }
 
-#landing-text-symbols a{
-    color: grey;
-}
-
 #landing-text h2 {
-    color: grey;
+    color: rgb(17, 16, 16);
+    text-decoration: none;
     text-transform: none;
 }
 
+#landing-text-symbols a{
+    color: grey;
+    padding-top: 0.2rem;
+}
+
 #landing-image img{
-    width: 80%;
+    width: 100%;
     border-radius: 50%;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    margin: auto;
 }
 
 #about-me{
