@@ -74,13 +74,14 @@ main{
     padding-bottom: 12rem;
 }
 
-.float-left {
-    width: 50%;
+.float-image {
+    width: 75%;
+    max-width: 400px;
     float: auto;
 
 }  
-.float-right {
-    width: 50%;
+.float-text {
+    width: 25%;
     float: right;
 }  
 
