@@ -3,7 +3,6 @@
 
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale = 1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -31,6 +30,11 @@
               PhD candidate in causal inference & machine learning <br>
               Delft University of Technology, the Netherlands <br>
             </h2>
+            <div id="landing-text-symbols">
+              <a href="https://github.com/RickardKarl" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+              <a href="https://linkedin.com/in/rickard-karlsson" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+              <a href="https://scholar.google.com/citations?user=sIln4MYAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="ai ai-google-scholar ai-lg"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -42,33 +46,19 @@
           Reinders in the Pattern Recognition Laboratory.
           As part of my PhD, I was also a visiting graduate student at Harvard University, working with Issa
           Dahabreh in the CAUSALab.
-          Morever, I spent some time as a machine learning scientist intern at Booking.com in Amsterdam.
+          Moreover, I spent some time as a machine learning scientist intern at Booking.com in Amsterdam.
 
           <br><br>
           I am originally from Sweden, where I earned my BSc in Engineering Physics and MSc in Engineering Mathematics
           from Chalmers University of Technology. During my studies, I also interned at NASA
-          Goddard Space Flight Center. My full CV can be found <a href="files/CV.pdf">here</a>.
+          Goddard Space Flight Center. 
 
           <br><br>
-          My research interests revolve around causal inference and machine learning, and how we can better answer causal questions using data. 
-          In particular, I am interested in how we can combine datasets from different sources, such as randomized controlled trials and
-          observational studies, using flexible machine learning models to improve the sample efficiency and validity of causal inference. 
-          Along these lines, I have most recently focused on the following two important questions:
-        <ul>
-          <li><strong>Trial augmentation</strong> How can we to safely improve the efficiency in randomized controlled
-            trials using data
-            from external sources?</li>
-          <li><strong>Causal falsification</strong> How can we falsify the validity of assumptions, such as the absence
-            of unmeasured
-            confounding, required to identify
-            and estimate
-            treatment effects?</li>
-        </ul>
-
-
-        If you're interested in either of these questions, please see my publications but also check out my Python
-        package <a href="https://github.com/RickardKarl/causal-falsify">causal-falsify</a>.
-
+          My recent work revolves around how we can better answer causal questions using data. 
+          In particular, I am interested in how we can use information from different sources, such as randomized controlled trials and
+          observational studies, using flexible machine learning models to improve the sample efficiency and trustworthiness of causal conclusions.
+          <br><br>
+          As part of my work, I've also developed several open-source tools. Most recently, these include <a href="https://github.com/RickardKarl/causal-falsify">causal-falsify</a>, a Python package implementing methods to detect unmeasured confounding in observational data, and <a href="https://github.com/RickardKarl/rct-checker">rct-checker</a>, an LLM-based tool that automatically extracts table data from medical papers on randomized controlled trials and checks for statistical irregularities.
         </p>
 
       </div>
@@ -104,7 +94,7 @@
               confounding in observational data using
               multiple environments</em></a> accepted to NeurIPS 2023. </li>
         <li><strong>[Aug 2023]</strong> Our paper on benchmarking surrogate-based
-          optimation algorithms from my masters accepted to Applied Soft
+          optimization algorithms from my masters accepted to Applied Soft
           Computing. You can read it <a href="https://authors.elsevier.com/sd/article/S1568494623007627">here</a>.
         </li>
         <li><strong>[Sep 2022]</strong> Presented a poster at the ELLIS Doctoral Symposium in
@@ -119,7 +109,7 @@
           track)
           together with Laurens Bliek and Arthur Guijt, our approach is described <a
             href="https://dl.acm.org/doi/pdf/10.1145/3449726.3463279"> here</a>. </li>
-        <li> <strong>[Jun 2021]</strong> Finished my thesis and graduated with a MSc in Engineering Mathematics from
+        <li> <strong>[Jun 2021]</strong> Finished my thesis and graduated with an MSc in Engineering Mathematics from
           Chalmers University of Technology. </li>
         <li> <strong>[Nov 2020]</strong> Our paper, <a href="https://arxiv.org/abs/2011.03431"><em>Continuous
               Surrogate-Based Optimization Algorithms Are Well-Suited for Expensive Discrete Problems</em></a>, was
@@ -132,7 +122,7 @@
         <h1>Research</h1>
         <p>
           The full list of papers can also be found on my <a
-            href="https://scholar.google.com/citations?user=sIln4MYAAAAJ&hl=en"> Google scholar profile</a>.
+            href="https://scholar.google.com/citations?user=sIln4MYAAAAJ&hl=en"> Google scholar profile</a>. Equal contribution is denoted with [*]. 
         </p>
         <h2>Publications</h2>
         <ul>
@@ -147,8 +137,7 @@
           <li>
             Rickard Karlsson*, Guanbo Wang*, Piersilvio De Bartolomeis, Jesse H. Krijthe, Issa J. Dahabreh
             <em>Robust
-              integration of external control data in randomized trials</em>. Biometrics, 2026 (Forthcoming). *Equal
-            contribution
+              integration of external control data in randomized trials</em>. Biometrics, 2026 (Forthcoming).
             <br>
             [<a href="https://arxiv.org/abs/2406.17971">paper</a>] [<a
               href="https://github.com/RickardKarl/IntegratingExternalControls">code</a>]
@@ -183,7 +172,7 @@
           <li>
             Rickard Karlsson*, Martin Willbo*, Zeshan Hussain, Rahul G. Krishnan, David Sontag, Fredrik D. Johansson
             <em>Using Time-Series Privileged Information for Provably Efficient Learning of Prediction Models</em>.
-            AISTATS, 2022. *Equal contribution <br>
+            AISTATS, 2022. <br>
             [<a href="https://arxiv.org/abs/2110.14993">paper</a>] [<a
               href="https://github.com/RickardKarl/LearningUsingPrivilegedTimeSeries">code</a>]
 
@@ -200,47 +189,24 @@
         <h2>Preprints</h2>
         <ul>
           <li>Rickard Karlsson*, Bram van den Akker*, Felipe Moraes, Hugo M. Proença, Jesse H. Krijthe <em>Qini curve
-              estimation under clustered network interference</em>. Under review, 2025. *Equal contribution<br>
+              estimation under clustered network interference</em>. Under review, 2025.<br>
             [<a href="https://arxiv.org/abs/2502.20097">paper</a>] [<a
-              href="https://github.com/bookingcom/uplift-interference-simulator">code</a>]</li>
-          </li>
-        </ul>
-
-        <h2>Software</h2>
-        <ul>
-          <li>
-            <a href="https://github.com/RickardKarl/causal-falsify">causal-falsify</a>: a Python package implementing
-            various falsification algorithms for the assumption of no unmeasured confounding when having observational
-            data from multiple sources.
+              href="https://github.com/bookingcom/uplift-interference-simulator">code</a>]
           </li>
         </ul>
       </div>
-
-
-      <div id="contact">
-        <h1>Contact</h1>
-        <p>
-          You can contact me through email at r.k.a.karlsson{at}tudelft.nl, feel free to reach out for collaborations.
-          I am also active on <a href="https://bsky.app/profile/rickardkarlsson.bsky.social">Bluesky</a>.
-
-        <h2>Office</h2> <br>
-          Room 6.E.040, Building 28 at Delft University of Technology <br>
-          Van Mourik Broekmanweg 6, 2628 XE Delft, The Netherlands <br>
-          </p>
-      </div>
-
-      <hr>
 
     </main>
 
     <footer>
-      <h4> © Rickard Karlsson </h4>
+      <div id="footer-symbols">
+        <a href="https://github.com/RickardKarl" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://linkedin.com/in/rickard-karlsson" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="https://scholar.google.com/citations?user=sIln4MYAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="ai ai-google-scholar ai-lg"></i></a>
+      </div>
+      <h4> &copy; Rickard Karlsson </h4>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <script src="js/main.js"></script>
   </body>
 
 

@@ -1,6 +1,4 @@
 /* Stylesheet: */
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
-
 body {
     font-family: 'Palatino', serif;
     font-size: large;
@@ -42,37 +40,11 @@ main {
     margin: auto;
 }
 
-.btn {
-    padding: 0.5rem 2rem;
-    border: 3px lightsteelblue solid;
-    display: inline-block;
-    margin: 1rem 0 0;
-    border-radius: 50px;
-    text-decoration: none;
-    color: #333;
-    transition: background 300ms ease-in-out;
-}
-
-.btn:hover {
-    background: lightsteelblue;
-}
-
-.link {
-    display: inline-block;
-    text-decoration: none;
-    color: #333;
-    transition: color 300ms ease-in-out;
-}
-
-.link:hover {
-    color: lightsteelblue;
-}
-
 .float-container {
     padding-right: 4rem;
     padding-left: 4rem;
     padding-top: 4rem;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
 }
 
 .float-image {
@@ -108,9 +80,20 @@ main {
     text-transform: none;
 }
 
+#landing-text-symbols {
+    margin-top: 0.6rem;
+    display: flex;
+    gap: 1rem;
+}
+
 #landing-text-symbols a {
-    color: grey;
-    padding-top: 0.2rem;
+    color: #555;
+    text-decoration: none;
+    transition: color 300ms ease-in-out;
+}
+
+#landing-text-symbols a:hover {
+    color: #111;
 }
 
 #landing-image img {
@@ -121,12 +104,7 @@ main {
 
 #about-me {
     padding: 1rem;
-    text-align: left;
-    background-color: white;
-}
-
-#contact {
-    padding: 1rem;
+    padding-top: 2rem;
     text-align: left;
     background-color: white;
 }
@@ -135,22 +113,12 @@ main {
     padding: 1rem;
     text-align: left;
     background-color: white;
-    ;
 }
 
 #news {
     padding: 1rem;
     text-align: left;
     background-color: white;
-    ;
-}
-
-/**
-    Used for list in #news
-    Source: https://dev.to/peterc/how-to-create-joined-bulletpoint-lists-with-css-bbc-news-style-1eem
-**/
-#news ol {
-    list-style-type: none;
 }
 
 #news li {
@@ -182,4 +150,21 @@ main {
 footer {
     text-align: center;
     margin-bottom: 0;
+}
+
+#footer-symbols {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#footer-symbols a {
+    color: #555;
+    text-decoration: none;
+    transition: color 300ms ease-in-out;
+}
+
+#footer-symbols a:hover {
+    color: #111;
 }
