@@ -68,6 +68,8 @@ footer { margin-top:30px; padding:16px 0 40px; border-top:1px solid #000; font-s
   .field canvas { aspect-ratio:1/1; }
   #sig { width:240px; height:48px; }
   .pub-list li { grid-template-columns:1fr; }
+  .prev li { grid-template-columns:1fr; padding:6px 0; line-height:1.4; } /* date under the title, so long titles get the full width */
+  .prev .when { font-size:14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal { transition:none; opacity:1; transform:none; }
