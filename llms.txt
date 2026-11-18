@@ -1,0 +1,15 @@
+# Rickard Karlsson
+
+> Scientist and engineer, currently a founding member of technical staff at a yet-to-be-revealed startup. Before that, I did a PhD in Computer Science at TU Delft on when you can trust data to answer causal questions.
+
+## Pages
+
+- [Home](https://rickardkarlsson.com/): a short bio and past roles
+- [Research](https://rickardkarlsson.com/research.html): my publications and open-source software
+
+## Elsewhere
+
+- [GitHub](https://github.com/RickardKarl)
+- [Google Scholar](https://scholar.google.com/citations?user=sIln4MYAAAAJ&hl=en)
+- [LinkedIn](https://linkedin.com/in/rickard-karlaxel-karlsson)
+- [Twitter](https://x.com/RdKarlsson)

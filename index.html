@@ -1,57 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Rickard Karlsson - personal website">
-  <title>Rickard Karlsson</title>
-</head>
-<body>
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-name">Rickard Karlsson</a>
-      <div class="nav-links">
-        <a href="index.html" class="active">About</a>
-        <a href="research.html">Research</a>
-      </div>
+---
+layout: default
+title: Rickard Karlsson
+scripts: [/assets/pc.js, /assets/hero.js, /assets/vara.min.js, /assets/home.js]
+---
+<div class="hero">
+  <div class="controls">
+    <span>tests <b id="tests">0</b></span>
+    <div class="slider">
+      <label for="nodes">variables</label>
+      <input id="nodes" type="range" min="5" max="50" step="1" value="15">
+      <b id="nodesv">15</b>
     </div>
-  </nav>
-
-  <main>
-    <div id="about-me">
-  <img id="profile-photo" src="img/rickard_photo.jpeg" alt="Rickard Karlsson">
-    <p>
-      Hi, I'm Rickard, a scientist and engineer working as a founding member of technical
-      staff on a yet-to-be-revealed startup.
-    </p>
-    <p>
-      I recently completed my PhD in Computer Science (cum laude) at Delft University of
-      Technology. I'm originally from Sweden, where I did my BSc in Engineering Physics and
-      MSc in Engineering Mathematics at Chalmers University of Technology. Along the way,
-      I've also worked at Harvard, Booking.com, and NASA Goddard Space Flight Center.
-    </p>
-    <p>
-      Alongside my research, I've developed several open-source tools, including
-      <a href="https://github.com/RickardKarl/causal-falsify" target="_blank" rel="noopener noreferrer">causal-falsify</a>,
-      a Python package implementing methods to detect unmeasured confounding in observational data, and
-      <a href="https://github.com/RickardKarl/rct-checker" target="_blank" rel="noopener noreferrer">rct-checker</a>,
-      an LLM-based tool that extracts table data from medical papers on randomized controlled
-      trials and checks it for statistical irregularities.
-    </p>
   </div>
-  </main>
 
-  <footer>
-    <div id="footer-links">
-      <a href="https://github.com/RickardKarl" target="_blank" rel="noopener noreferrer">github</a>
-      <a href="https://linkedin.com/in/rickard-karlaxel-karlsson" target="_blank" rel="noopener noreferrer">linkedin</a>
-      <a href="https://scholar.google.com/citations?user=sIln4MYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">google scholar</a>
-    </div>
-    <p>&copy; 2026 Rickard Karlsson</p>
-  </footer>
-</body>
-</html>
+  <div class="field">
+    <canvas id="c" role="img" aria-label="Variables start fully connected. The PC algorithm removes edges whenever two variables are independent given others, then adds arrowheads where the direction can be worked out. Moving the cursor near the graph pushes the variables away; they spring back."></canvas>
+  </div>
+  <p class="caption">The PC algorithm working out a causal graph. It starts with every variable connected to every other,
+    and removes an edge whenever two variables are independent given some of the others. Edges left without an arrowhead are the ones whose direction can't be
+    told from independences alone. Spirtes &amp; Glymour, <a href="https://doi.org/10.1177/089443939100900106">“An algorithm for fast recovery of sparse causal graphs,”</a> <em>Social Science Computer Review</em>, 1991.</p>
+  <button class="down" id="down" aria-label="Scroll to about me"><svg width="18" height="26" viewBox="0 0 18 26" fill="none" stroke="#000" stroke-width="1.2"><path d="M9 1v23M2 17l7 7 7-7"/></svg></button>
+</div>
+
+  <section class="reveal intro">
+    <h1 class="me">Rickard Karlsson</h1>
+    <p class="more"><a href="{{ '/research.html' | relative_url }}">research</a></p>
+  </section>
+  <section class="reveal">
+    <h2>About me</h2>
+    <p>I'm a scientist and engineer, currently a founding member of technical staff at a yet-to-be-revealed startup.
+       Before that, after learning about algorithms like the one shown at the top of this page, I decided to do a PhD on
+       machine learning and statistical methods for estimating causal effects from data.
+       I'm also a relentless optimist and care about having a positive impact on the world.</p>
+  </section>
+  <section class="reveal">
+    <h2>Previously</h2>
+    <ul class="prev">
+      <li><span class="what">PhD in Computer Science (cum laude), TU Delft</span><span class="when">2021–2026</span></li>
+      <li><span class="what">Machine Learning Scientist, Booking.com</span><span class="when">2024</span></li>
+      <li><span class="what">Visiting Research Scholar, Harvard</span><span class="when">2023–2024</span></li>
+      <li><span class="what">MSc Engineering Mathematics, BSc Engineering Physics, Chalmers</span><span class="when">2016–2021</span></li>
+      <li><span class="what">Data Analyst, NASA Goddard Space Flight Center</span><span class="when">2019</span></li>
+    </ul>
+  </section>
+
+  <div class="signoff"><div id="sig"></div></div>

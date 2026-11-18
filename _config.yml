@@ -1,0 +1,2 @@
+markdown: kramdown
+exclude: [docs, tests, .superpowers, .context, README.md]
