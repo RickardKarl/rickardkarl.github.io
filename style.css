@@ -72,7 +72,9 @@ footer { margin-top:30px; padding:16px 0 40px; border-top:1px solid #000; font-s
 @media (max-width:600px) {
   :root { --head:96px; --below:290px; } /* extra room in case the caption wraps before the font loads */
   body { font-size:16px; }
-  .field canvas { aspect-ratio:1/1; }
+  .field canvas { aspect-ratio:1/1; max-height:max(200px, calc(100svh - var(--head) - var(--below))); } /* lower floor so the longer caption and the arrow still fit on short phones */
+  .down { padding:6px; margin-bottom:4px; }
+  .slider { flex-basis:180px; } /* keeps the controls on one row even when the tests counter reaches 60,000 */
   #sig { width:240px; height:48px; }
   .pub-list li { grid-template-columns:1fr; }
   .prev li { grid-template-columns:1fr; padding:6px 0; line-height:1.4; } /* date under the title, so long titles get the full width */

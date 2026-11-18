@@ -45,7 +45,7 @@ try {
   // the first screen fits: the arrow sits inside the window on short laptop and phone screens
   for (const [w, h] of [[1366, 657], [1280, 600], [375, 553]]) {
     await open(w, h);
-    const bottom = await ev("document.getElementById('down').getBoundingClientRect().bottom");
+    const bottom = await ev("document.getElementById('tests').textContent = '60,000'; document.getElementById('down').getBoundingClientRect().bottom"); // widest counter, so the controls row can't wrap later
     assert(bottom <= h, `arrow below the fold at ${w}x${h} (bottom ${Math.round(bottom)}px)`);
   }
   // wide screen: the hero (controls to caption) sits centred above the arrow and grows past the 760px text column
