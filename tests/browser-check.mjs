@@ -73,9 +73,10 @@ try {
   assert(!(await shown()).includes('false'), 'sections not all revealed after scrolling down');
   await ev("scrollTo(0, 0); document.getElementById('down').classList.remove('away'); 1"); await sleep(300);
   await ev("document.getElementById('down').click(); 1"); await sleep(1500);
-  const top = await ev("document.querySelector('.reveal').getBoundingClientRect().top");
-  const atEnd = await ev('scrollY >= document.documentElement.scrollHeight - innerHeight - 2'); // short pages can't bring it all the way up
-  assert(top >= 0 && (top <= 120 || atEnd), `arrow click left About me at ${top}px`);
+  // the arrow brings the About block to the top of the window, its content centred in that screen
+  const ab = JSON.parse(await ev("JSON.stringify({t: document.querySelector('.about').getBoundingClientRect().top, i: document.querySelector('.intro').getBoundingClientRect().top, l: document.querySelector('.about section:last-child').getBoundingClientRect().bottom, h: innerHeight})"));
+  assert(Math.abs(ab.t) <= 2, `About block top at ${ab.t}px after arrow click`);
+  assert(Math.abs(ab.i - (ab.h - ab.l)) < 60, `About content not centred: ${JSON.stringify(ab)}`);
   // the sign-off waits 7.5 s after it comes into view, then writes "with love, rickard"
   await open(1100, 860); // fresh page, so the timer starts with this scroll
   await ev('scrollTo(0, document.body.scrollHeight)'); await sleep(5000);

@@ -42,6 +42,8 @@ input[type=range]::-moz-range-thumb { width:2px; height:14px; border-radius:0; b
 
 /* sections */
 section { margin-top:40px; }
+.about { min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center; } /* name, About me and Previously fill the second screen, centred */
+.about section:first-child { margin-top:0; }
 .me { font-weight:normal; font-size:28px; line-height:1.2; margin:0 0 4px; }
 .intro .more { font-size:15px; margin:0; }
 h2 { font-weight:normal; font-style:italic; font-size:17px; margin:0 0 6px; }
