@@ -55,6 +55,14 @@ try {
   assert(g.w > 760 && g.w <= 1080, `hero width ${g.w}`);
   await open(1100, 860);
   assert(await ev('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow at 1100px');
+  // placed by layout, not a transform: a -50% translate lands on half pixels and blurs the 1px frame and the graph
+  assert.strictEqual(await ev("getComputedStyle(document.querySelector('.hero')).translate"), 'none', 'hero is shifted with translate');
+  // the hero only grows past the text column while the screen is tall enough to keep the graph at 8:5
+  for (const [w, h] of [[1280, 720], [1366, 768], [1280, 600], [1440, 900], [2560, 1440]]) {
+    await open(w, h);
+    const f = JSON.parse(await ev("JSON.stringify(document.getElementById('c').getBoundingClientRect())"));
+    assert(f.width <= 717 || f.width / f.height <= 1.62, `graph squashed at ${w}x${h}: ${Math.round(f.width)}x${Math.round(f.height)}`);
+  }
   // phone width: nothing sticks out sideways
   await open(375, 740);
   assert(await ev('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow at 375px');
