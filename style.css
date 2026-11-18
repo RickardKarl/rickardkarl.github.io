@@ -21,11 +21,15 @@ header nav a:hover, header nav a[aria-current] { text-decoration:underline; }
 .slider { display:flex; align-items:center; gap:12px; flex:1 1 260px; max-width:340px; }
 .slider label { white-space:nowrap; }
 input[type=range] { -webkit-appearance:none; appearance:none; flex:1; background:transparent; height:20px; margin:0; cursor:pointer; }
-input[type=range]::-webkit-slider-runnable-track { height:1px; background:#000; }
-input[type=range]::-moz-range-track { height:1px; background:#000; }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:12px; height:12px; border-radius:50%; background:#000; margin-top:-5.5px; border:0; }
-input[type=range]::-moz-range-thumb { width:12px; height:12px; border-radius:50%; background:#000; border:0; }
-.field { border:1.5px solid #000; }
+/* the slider is a ruler: baseline, a tick every 5 variables, taller ticks at 10, 20 … 50 (range 5-50 = 9 intervals), and a thin needle */
+input[type=range] { --ruler:linear-gradient(#000,#000) left bottom/100% 1px no-repeat,
+  linear-gradient(90deg,#000 1px,transparent 1px) left bottom/calc((100% - 1px) / 9) 5px repeat-x,
+  linear-gradient(90deg,transparent 50%,#000 50%,#000 calc(50% + 1px),transparent calc(50% + 1px)) left bottom/calc((100% - 1px) * 2 / 9) 9px repeat-x; }
+input[type=range]::-webkit-slider-runnable-track { height:9px; background:var(--ruler); }
+input[type=range]::-moz-range-track { height:9px; background:var(--ruler); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:2px; height:14px; border-radius:0; background:#000; margin-top:-3px; border:0; }
+input[type=range]::-moz-range-thumb { width:2px; height:14px; border-radius:0; background:#000; border:0; }
+.field { border:1px solid #000; }
 .field canvas { display:block; width:100%; aspect-ratio:8/5; max-height:max(220px, calc(100svh - var(--head) - var(--below))); }
 .caption { font-size:12.5px; color:var(--muted); line-height:1.5; margin:12px 0 0; }
 .caption a { color:var(--muted); }
