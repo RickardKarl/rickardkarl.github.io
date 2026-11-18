@@ -15,8 +15,9 @@ header nav a { text-decoration:none; }
 header nav a:hover, header nav a[aria-current] { text-decoration:underline; }
 
 /* hero: the live PC algorithm */
-.hero { min-height:calc(100vh - var(--head)); min-height:calc(100svh - var(--head)); display:flex; flex-direction:column; }
-.controls { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:6px 16px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; margin-bottom:8px; }
+.hero { min-height:calc(100vh - var(--head)); min-height:calc(100svh - var(--head)); display:flex; flex-direction:column; 
+  width:min(1080px, 100vw - 44px); position:relative; left:50%; translate:-50% 0; } /* wider than the 760px text column on big screens, centred on it */
+.controls { margin-top:auto; /* with the arrow's auto margin, centres controls-to-caption in the first screen */ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:6px 16px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; margin-bottom:8px; }
 .controls b { color:#000; font-weight:normal; }
 .slider { display:flex; align-items:center; gap:12px; flex:1 1 260px; max-width:340px; }
 .slider label { white-space:nowrap; }
@@ -31,7 +32,7 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:2px; he
 input[type=range]::-moz-range-thumb { width:2px; height:14px; border-radius:0; background:#000; border:0; }
 .field { border:1px solid #000; }
 .field canvas { display:block; width:100%; aspect-ratio:8/5; max-height:max(220px, calc(100svh - var(--head) - var(--below))); }
-.caption { font-size:12.5px; color:var(--muted); line-height:1.5; margin:12px 0 0; }
+.caption { max-width:760px; font-size:12.5px; color:var(--muted); line-height:1.5; margin:12px 0 0; }
 .caption a { color:var(--muted); }
 .down { margin:auto auto 14px; padding:10px; border:0; background:none; cursor:pointer; opacity:0; transition:opacity 1.2s ease; }
 .down.on { opacity:1; }

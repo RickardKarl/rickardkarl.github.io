@@ -48,6 +48,13 @@ try {
     const bottom = await ev("document.getElementById('down').getBoundingClientRect().bottom");
     assert(bottom <= h, `arrow below the fold at ${w}x${h} (bottom ${Math.round(bottom)}px)`);
   }
+  // wide screen: the hero (controls to caption) sits centred above the arrow and grows past the 760px text column
+  await open(2560, 1440);
+  const g = JSON.parse(await ev("JSON.stringify({c: document.querySelector('.controls').getBoundingClientRect().top, h: document.querySelector('.hero').getBoundingClientRect().top, cap: document.querySelector('.caption').getBoundingClientRect().bottom, a: document.getElementById('down').getBoundingClientRect().top, w: document.querySelector('.field').getBoundingClientRect().width})"));
+  assert(Math.abs((g.c - g.h) - (g.a - g.cap)) < 40, `hero not centred: ${JSON.stringify(g)}`);
+  assert(g.w > 760 && g.w <= 1080, `hero width ${g.w}`);
+  await open(1100, 860);
+  assert(await ev('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow at 1100px');
   // phone width: nothing sticks out sideways
   await open(375, 740);
   assert(await ev('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow at 375px');
