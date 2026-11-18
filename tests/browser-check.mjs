@@ -62,7 +62,13 @@ try {
     await open(w, h);
     const f = JSON.parse(await ev("JSON.stringify(document.getElementById('c').getBoundingClientRect())"));
     assert(f.width <= 717 || f.width / f.height <= 1.62, `graph squashed at ${w}x${h}: ${Math.round(f.width)}x${Math.round(f.height)}`);
+    // the name and the research link line up with the box's left and right edges
+    const e = JSON.parse(await ev("JSON.stringify([document.querySelector('header .name').getBoundingClientRect().left, document.querySelector('header nav').getBoundingClientRect().right, document.querySelector('.field').getBoundingClientRect().left, document.querySelector('.field').getBoundingClientRect().right])"));
+    assert(Math.abs(e[0] - e[2]) <= 1 && Math.abs(e[1] - e[3]) <= 1, `header not aligned with the box at ${w}x${h}: ${e.map(Math.round)}`);
   }
+  // the research page keeps its header on the text column
+  await open(2560, 1440, 'research.html');
+  assert(await ev("Math.abs(document.querySelector('header').getBoundingClientRect().width - document.querySelector('main').getBoundingClientRect().width) <= 1"), 'research header width changed');
   // phone width: nothing sticks out sideways
   await open(375, 740);
   assert(await ev('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow at 375px');

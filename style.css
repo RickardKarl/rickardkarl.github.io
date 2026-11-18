@@ -2,7 +2,9 @@
 @font-face { font-family:'TeX Gyre Pagella'; src:url('/fonts/texgyrepagella-italic.otf') format('opentype'); font-weight:400; font-style:italic; font-display:swap; }
 @font-face { font-family:'TeX Gyre Pagella'; src:url('/fonts/texgyrepagella-bold.otf') format('opentype'); font-weight:700; font-style:normal; font-display:swap; }
 
-:root { --muted:#666; --below:200px; /* controls + caption + arrow, so the canvas leaves room for them on short screens */ --head:112px; /* header height incl. its bottom margin; the hero fills the rest of the first screen */ }
+:root { --muted:#666; --below:200px; /* controls + caption + arrow, so the canvas leaves room for them on short screens */ --head:112px; /* header height incl. its bottom margin; the hero fills the rest of the first screen */
+  /* hero width: wider than the text column (716px inside .wrap) only while the screen is tall enough to keep the graph at 8:5; centred by layout, since a translate lands on half pixels and blurs the frame */
+  --w:min(1080px, 100vw - 44px, max(716px, (100svh - var(--head) - var(--below)) * 1.6)); }
 * { box-sizing:border-box; }
 body { margin:0; background:#fff; color:#000; font-family:'TeX Gyre Pagella','Palatino','Palatino Linotype','Book Antiqua',serif; font-size:17px; line-height:1.6; }
 a { color:#000; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
@@ -16,8 +18,8 @@ header nav a:hover, header nav a[aria-current] { text-decoration:underline; }
 
 /* hero: the live PC algorithm */
 .hero { min-height:calc(100vh - var(--head)); min-height:calc(100svh - var(--head)); display:flex; flex-direction:column; 
-  /* wider than the text column (716px inside .wrap) only while the screen is tall enough to keep the graph at 8:5; centred by layout, since a translate lands on half pixels and blurs the frame */
-  --w:min(1080px, 100vw - 44px, max(716px, (100svh - var(--head) - var(--below)) * 1.6)); width:var(--w); margin-left:calc((100% - var(--w)) / 2); }
+  width:var(--w); margin-left:calc((100% - var(--w)) / 2); }
+.wrap:has(.hero) > header { width:var(--w); margin-left:calc((100% - var(--w)) / 2); } /* home: name and research line up with the box */
 .controls { margin-top:auto; /* with the arrow's auto margin, centres controls-to-caption in the first screen */ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:6px 16px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; margin-bottom:8px; }
 .controls b { color:#000; font-weight:normal; }
 .slider { display:flex; align-items:center; gap:12px; flex:1 1 260px; max-width:340px; }
