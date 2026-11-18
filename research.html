@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Research and publications by Rickard Karlsson on causal inference, machine learning, and randomized trials.">
-  <title>Research · Rickard Karlsson</title>
-</head>
-<body>
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-name">Rickard Karlsson</a>
-      <div class="nav-links">
-        <a href="index.html">About</a>
-        <a href="research.html" class="active">Research</a>
-      </div>
-    </div>
-  </nav>
-
-  <main>
+---
+layout: default
+title: Research · Rickard Karlsson
+description: Research and publications by Rickard Karlsson on causal inference, machine learning, and randomized trials.
+---
     <div id="publications">
       <h2>Research</h2>
       <p>
@@ -32,6 +13,17 @@
 
       <h3>Publications</h3>
       <ul class="pub-list">
+        <li>
+          <span class="pub-venue">ECCV<br>2026</span>
+          <div class="pub-body">
+            Petter Reijalt, Sander Gielisse, Rickard Karlsson, Jan van Gemert.
+            <em>On the Real-World Generalisability of Optical Flow Models.</em>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2607.10470" target="_blank" rel="noopener noreferrer">paper</a>
+              <a href="https://github.com/Petter6/real-world-optical-flow" target="_blank" rel="noopener noreferrer">code</a>
+            </div>
+          </div>
+        </li>
         <li>
           <span class="pub-venue">AISTATS<br>2026</span>
           <div class="pub-body">
@@ -44,7 +36,7 @@
           </div>
         </li>
         <li>
-          <span class="pub-venue">Biometrics<br>2026</span>
+          <span class="pub-venue">Biometrics<br>2026 (forthcoming)</span>
           <div class="pub-body">
             Rickard Karlsson*, Guanbo Wang*, Piersilvio De Bartolomeis, Jesse H. Krijthe, Issa J. Dahabreh.
             <em>Robust integration of external control data in randomized trials.</em>
@@ -90,7 +82,7 @@
           <span class="pub-venue">Applied Soft<br>Computing 2023</span>
           <div class="pub-body">
             Laurens Bliek, Arthur Guijt, Rickard Karlsson, Sicco Verwer, Mathijs de Weerdt.
-            <em>Benchmarking Surrogate-based Optimisation Algorithms on Expensive Black-box Functions.</em>
+            <em>EXPObench: Benchmarking Surrogate-based Optimisation Algorithms on Expensive Black-box Functions.</em>
             <div class="pub-links">
               <a href="https://arxiv.org/abs/2106.04618" target="_blank" rel="noopener noreferrer">paper</a>
               <a href="https://github.com/AlgTUDelft/ExpensiveOptimBenchmark" target="_blank" rel="noopener noreferrer">code</a>
@@ -134,16 +126,24 @@
           </div>
         </li>
       </ul>
-    </div>
-  </main>
 
-  <footer>
-    <div id="footer-links">
-      <a href="https://github.com/RickardKarl" target="_blank" rel="noopener noreferrer">github</a>
-      <a href="https://linkedin.com/in/rickard-karlaxel-karlsson" target="_blank" rel="noopener noreferrer">linkedin</a>
-      <a href="https://scholar.google.com/citations?user=sIln4MYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">google scholar</a>
+      <h3>Books</h3>
+      <ul class="pub-list">
+        <li>
+          <span class="pub-venue">TU Delft<br>2026</span>
+          <div class="pub-body">
+            Rickard K.A. Karlsson.
+            <em>Safer Causal Inference: Theory and Algorithms for Falsification, Trial Augmentation and Policy Evaluation.</em>
+            <div class="pub-links">
+              <a href="https://repository.tudelft.nl/record/uuid:6870dd1e-557a-462c-ae2e-2f7bb1204bdc" target="_blank" rel="noopener noreferrer">thesis</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <h3>Software</h3>
+      <ul class="software">
+        <li><a href="https://github.com/RickardKarl/causal-falsify" target="_blank" rel="noopener noreferrer">causal-falsify</a>: a Python package implementing methods to detect unmeasured confounding in observational data.</li>
+        <li><a href="https://github.com/RickardKarl/rct-checker" target="_blank" rel="noopener noreferrer">rct-checker</a>: an LLM-based tool that extracts table data from medical papers on randomized controlled trials and checks it for statistical irregularities.</li>
+      </ul>
     </div>
-    <p>&copy; 2026 Rickard Karlsson</p>
-  </footer>
-</body>
-</html>
