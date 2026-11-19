@@ -12,6 +12,7 @@ has() { grep -q -- "$2" "$OUT/$1" || fail "$1 lacks '$2'"; }
 # layout, header, footer
 has index.html 'x.com/RdKarlsson'
 has index.html 'href="/research.html"'
+has index.html 'then tests pairs of variables for independence, one at a time'  # hero caption wording
 # no leftovers from the old design
 if grep -rlE 'DM Sans|2563eb|fonts\.googleapis' "$OUT" --include='*.html' --include='*.css' >/dev/null; then fail "old design leftovers"; fi
 # design notes and tests are not published

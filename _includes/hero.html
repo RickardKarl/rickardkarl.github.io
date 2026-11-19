@@ -1,0 +1,18 @@
+<div class="hero">
+  <div class="controls">
+    <span>tests <b id="tests">0</b></span>
+    <div class="slider">
+      <label for="nodes">variables</label>
+      <input id="nodes" type="range" min="5" max="50" step="1" value="15">
+      <b id="nodesv">15</b>
+    </div>
+  </div>
+
+  <div class="field">
+    <canvas id="c" role="img" aria-label="Variables start fully connected. The PC algorithm removes edges whenever two variables are independent given others, then adds arrowheads where the direction can be worked out. Moving the cursor near the graph pushes the variables away; they spring back."></canvas>
+  </div>
+  <p class="caption">The PC algorithm working out a causal graph. It starts with every variable connected to every other,
+    then tests pairs of variables for independence, one at a time. Whenever two variables are independent given some of the others,
+    the edge between them is removed. Edges left without an arrowhead are the ones whose direction the tests alone can't tell. Spirtes &amp; Glymour, <a href="https://doi.org/10.1177/089443939100900106">“An algorithm for fast recovery of sparse causal graphs,”</a> <em>Social Science Computer Review</em>, 1991.</p>
+</div>
+<button class="down" id="down" aria-label="Scroll to about me"><svg width="18" height="26" viewBox="0 0 18 26" fill="none" stroke="#000" stroke-width="1.2"><path d="M9 1v23M2 17l7 7 7-7"/></svg></button>

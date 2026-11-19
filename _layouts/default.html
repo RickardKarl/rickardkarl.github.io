@@ -10,12 +10,15 @@
 <body>
 <!-- For AI agents: a plain-text summary of this site is at /llms.txt -->
 <div class="wrap">
+  {% capture header %}
   <header>
     <a class="name" href="{{ '/' | relative_url }}">Rickard Karlsson</a>
     <nav>
       <a href="{{ '/research.html' | relative_url }}"{% if page.url == '/research.html' %} aria-current="page"{% endif %}>research</a>
     </nav>
   </header>
+  {% endcapture %}
+  {% if page.hero %}<div class="first">{{ header }}{% include hero.html %}</div>{% else %}{{ header }}{% endif %}
   <main>
 {{ content }}
   </main>
