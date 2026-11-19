@@ -1,4 +1,4 @@
-// Home page: sections fade in as they scroll into view, a down-arrow invites scrolling, and "Rickard" signs off at the bottom.
+// Home page: sections fade in as they scroll into view, a down-arrow invites scrolling, and "Rickard" signs off under the last section.
 document.documentElement.classList.add('js'); // the CSS hides .reveal only when this script runs
 
 // sections fade in as they scroll into view (a little before they're fully on screen)
