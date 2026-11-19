@@ -48,10 +48,10 @@ try {
     const bottom = await ev("document.getElementById('tests').textContent = '60,000'; document.getElementById('down').getBoundingClientRect().bottom"); // widest counter, so the controls row can't wrap later
     assert(bottom <= h, `arrow below the fold at ${w}x${h} (bottom ${Math.round(bottom)}px)`);
   }
-  // wide screen: the hero (controls to caption) sits centred above the arrow and grows past the 760px text column
+  // wide screen: name, graph and caption sit together, centred above the arrow; the graph grows past the 760px text column
   await open(2560, 1440);
-  const g = JSON.parse(await ev("JSON.stringify({c: document.querySelector('.controls').getBoundingClientRect().top, h: document.querySelector('.hero').getBoundingClientRect().top, cap: document.querySelector('.caption').getBoundingClientRect().bottom, a: document.getElementById('down').getBoundingClientRect().top, w: document.querySelector('.field').getBoundingClientRect().width})"));
-  assert(Math.abs((g.c - g.h) - (g.a - g.cap)) < 40, `hero not centred: ${JSON.stringify(g)}`);
+  const g = JSON.parse(await ev("JSON.stringify({c: document.querySelector('header .name').getBoundingClientRect().top, h: 0, cap: document.querySelector('.caption').getBoundingClientRect().bottom, a: document.getElementById('down').getBoundingClientRect().top, w: document.querySelector('.field').getBoundingClientRect().width})"));
+  assert(Math.abs((g.c - g.h) - (g.a - g.cap)) < 40, `first screen not centred: ${JSON.stringify(g)}`);
   assert(g.w > 760 && g.w <= 1080, `hero width ${g.w}`);
   await open(1100, 860);
   assert(await ev('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow at 1100px');
