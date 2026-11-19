@@ -30,6 +30,9 @@ try {
   for (let i = 0; i < 65 && !(await testsNow() > 0); i++) await sleep(100); // the first run comes from the worker; slower under load
   assert(await testsNow() > 0, 'tests counter did not move');
   assert(await ev("document.getElementById('c').width") > 0, 'canvas has no width');
+  assert(await ev('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow at 1100px');
+  // placed by layout, not a transform: a -50% translate lands on half pixels and blurs the 1px frame and the graph
+  assert.strictEqual(await ev("getComputedStyle(document.querySelector('.first')).translate"), 'none', 'first screen is shifted with translate');
   await ev("const n = document.getElementById('nodes'); n.value = 50; n.dispatchEvent(new Event('input')); n.dispatchEvent(new Event('change')); 1");
   await sleep(1500);
   assert.strictEqual(await ev("document.getElementById('nodesv').textContent"), '50');
@@ -42,29 +45,25 @@ try {
   await ev('scrollTo(0, document.body.scrollHeight)'); await sleep(500);
   const t1 = await ev("document.getElementById('tests').textContent"); await sleep(1000);
   assert.strictEqual(await ev("document.getElementById('tests').textContent"), t1, 'animation kept running off screen');
-  // the first screen fits: the arrow sits inside the window on short laptop and phone screens
-  for (const [w, h] of [[1366, 657], [1280, 600], [375, 553]]) {
+  // every size, one load each:
+  // - the first screen fits: the arrow sits inside the window (widest counter, so the controls row can't wrap later)
+  // - the graph only grows past the text column while the screen is tall enough to keep it at 8:5
+  // - the name and the research link line up with the box's left and right edges
+  // - on a wide screen, name to caption sits centred above the arrow
+  for (const [w, h] of [[1366, 657], [1280, 600], [375, 553], [1280, 720], [1366, 768], [1440, 900], [2560, 1440]]) {
     await open(w, h);
-    const bottom = await ev("document.getElementById('tests').textContent = '60,000'; document.getElementById('down').getBoundingClientRect().bottom"); // widest counter, so the controls row can't wrap later
-    assert(bottom <= h, `arrow below the fold at ${w}x${h} (bottom ${Math.round(bottom)}px)`);
-  }
-  // wide screen: name, graph and caption sit together, centred above the arrow; the graph grows past the 760px text column
-  await open(2560, 1440);
-  const g = JSON.parse(await ev("JSON.stringify({c: document.querySelector('header .name').getBoundingClientRect().top, h: 0, cap: document.querySelector('.caption').getBoundingClientRect().bottom, a: document.getElementById('down').getBoundingClientRect().top, w: document.querySelector('.field').getBoundingClientRect().width})"));
-  assert(Math.abs((g.c - g.h) - (g.a - g.cap)) < 40, `first screen not centred: ${JSON.stringify(g)}`);
-  assert(g.w > 760 && g.w <= 1080, `hero width ${g.w}`);
-  await open(1100, 860);
-  assert(await ev('document.documentElement.scrollWidth <= innerWidth'), 'horizontal overflow at 1100px');
-  // placed by layout, not a transform: a -50% translate lands on half pixels and blurs the 1px frame and the graph
-  assert.strictEqual(await ev("getComputedStyle(document.querySelector('.hero')).translate"), 'none', 'hero is shifted with translate');
-  // the hero only grows past the text column while the screen is tall enough to keep the graph at 8:5
-  for (const [w, h] of [[1280, 720], [1366, 768], [1280, 600], [1440, 900], [2560, 1440]]) {
-    await open(w, h);
-    const f = JSON.parse(await ev("JSON.stringify(document.getElementById('c').getBoundingClientRect())"));
-    assert(f.width <= 717 || f.width / f.height <= 1.62, `graph squashed at ${w}x${h}: ${Math.round(f.width)}x${Math.round(f.height)}`);
-    // the name and the research link line up with the box's left and right edges
-    const e = JSON.parse(await ev("JSON.stringify([document.querySelector('header .name').getBoundingClientRect().left, document.querySelector('header nav').getBoundingClientRect().right, document.querySelector('.field').getBoundingClientRect().left, document.querySelector('.field').getBoundingClientRect().right])"));
-    assert(Math.abs(e[0] - e[2]) <= 1 && Math.abs(e[1] - e[3]) <= 1, `header not aligned with the box at ${w}x${h}: ${e.map(Math.round)}`);
+    const m = await ev(`(() => { document.getElementById('tests').textContent = '60,000';
+      const r = s => document.querySelector(s).getBoundingClientRect(), f = r('.field'), c = r('#c');
+      const d = r('#down'), n = r('header .name');
+      return { arrowTop: d.top, arrowBottom: d.bottom, nameLeft: n.left, nameTop: n.top, nav: r('header nav').right, cap: r('.caption').bottom, f: [f.left, f.right, f.width], c: [c.width, c.height] }; })()`);
+    assert(m.arrowBottom <= h, `arrow below the fold at ${w}x${h} (bottom ${Math.round(m.arrowBottom)}px)`);
+    if (w < 600) continue;
+    assert(m.c[0] <= 717 || m.c[0] / m.c[1] <= 1.62, `graph squashed at ${w}x${h}: ${m.c.map(Math.round)}`);
+    assert(Math.abs(m.nameLeft - m.f[0]) <= 1 && Math.abs(m.nav - m.f[1]) <= 1, `header not aligned with the box at ${w}x${h}`);
+    if (w === 2560) {
+      assert(Math.abs(m.nameTop - (m.arrowTop - m.cap)) < 40, `first screen not centred: ${JSON.stringify(m)}`);
+      assert(m.f[2] > 760 && m.f[2] <= 1080, `hero width ${m.f[2]}`);
+    }
   }
   // the research page keeps its header on the text column
   await open(2560, 1440, 'research.html');
@@ -88,7 +87,10 @@ try {
   await ev("scrollTo(0, 0); document.getElementById('down').classList.remove('away'); 1"); await sleep(300);
   await ev("document.getElementById('down').click(); 1"); await sleep(1500);
   // the arrow brings the About block to the top of the window, its content centred in that screen
-  const ab = JSON.parse(await ev("JSON.stringify({t: document.querySelector('.about').getBoundingClientRect().top, i: document.querySelector('.intro').getBoundingClientRect().top, l: document.querySelector('.about section:last-child').getBoundingClientRect().bottom, h: innerHeight})"));
+  const ab = await ev(`(() => { const r = s => document.querySelector(s).getBoundingClientRect();
+    return { t: r('.about').top, i: r('.intro').top, l: r('.about > :last-child').bottom, prev: r('.prev').bottom, sig: r('.signoff').top, h: innerHeight }; })()`);
+  // the signature follows right under Previously, inside the centred block, not at the bottom of the page
+  assert(ab.sig - ab.prev <= 80 && ab.sig - ab.prev >= 0, `signature not under the content: ${JSON.stringify(ab)}`);
   assert(Math.abs(ab.t) <= 2, `About block top at ${ab.t}px after arrow click`);
   assert(Math.abs(ab.i - (ab.h - ab.l)) < 60, `About content not centred: ${JSON.stringify(ab)}`);
   // the sign-off waits 7.5 s after it comes into view, then writes "with love, rickard"
